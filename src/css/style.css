@@ -1,4 +1,5 @@
 :root {
+  --clr-primary-500: #ef233c;
   --clr-primary-400: #121725;
   --clr-primary-300: #54e6af;
   --clr-primary-200: #272c3a;
@@ -66,18 +67,17 @@ body {
   line-height: 1.5;
 }
 
+.form {
+  max-width: 30rem;
+}
+
 .form__item {
   position: relative;
-  height: 3rem;
-  width: 70%;
 }
 
 .form__input {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
+  height: 3rem;
   padding-left: 1rem;
   border-radius: 10rem;
   border: none;
@@ -85,6 +85,22 @@ body {
   color: var(--clr-neutral-300);
   background-color: var(--clr-primary-200);
   font-weight: 700;
+}
+
+.form__error {
+  transform: scaleY(0);
+  margin: 1rem 0;
+  text-align: center;
+  color: var(--clr-primary-500);
+  transition: all 0.3s;
+}
+
+.form-error .form__input {
+  border: 1px solid var(--clr-primary-500);
+}
+
+.form-error .form__error {
+  transform: scaleY(1);
 }
 
 .btn {
@@ -163,16 +179,17 @@ body {
   }
 
   .main {
-    background-color: transparent;
     padding: 2rem;
     max-width: 100%;
     text-align: center;
+    background-color: transparent;
   }
 
   .heading__primary {
     font-size: 2rem;
   }
 
+  .form,
   .description {
     max-width: 100%;
   }
@@ -182,17 +199,12 @@ body {
     margin-top: 3rem;
   }
 
+  .form__item {
+    width: 70%;
+  }
+
   .companies {
     margin: 0;
-  }
-
-  .form__item {
-    height: auto;
-  }
-
-  .form__input {
-    position: static;
-    height: 3rem;
   }
 
   .btn--request {
@@ -214,7 +226,7 @@ body {
 
 @media (max-width: 32rem) {
   .form__item {
-    width: 100%;
+    width: 85%;
   }
 
   .heading__primary {
